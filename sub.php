@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include "connection.php";
 include "class-Clockwork.php";
 
 if(isset($_GET['from'])){
@@ -7,7 +7,7 @@ if(isset($_GET['from'])){
 	//subscribe this user to cat facts
 	$query = "SELECT id FROM cat_user WHERE num = '$from'";
 	$result = mysql_query($query);
-	if(mysql_num_rows($result)>0){
+	if(mysql_num_rows($result)==0){
 		//user is not subbed. SUB THEM NOW
 		$sql = "INSERT INTO cat_user (num) VALUES ('$from')";
 		if(!mysql_query($sql)){

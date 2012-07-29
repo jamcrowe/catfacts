@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include "connection.php";
 include "class-Clockwork.php";
 
 
@@ -30,10 +30,9 @@ $message = $facts[$random];
 $messages = array();
 //create the messages
 while($row = mysql_fetch_assoc($result)){
-	$messages[]["to"] = $row['num'];
+	$messages[]["to"] = "+".trim($row['num']);
 	$messages[]["message"] = $message;
 }
-
 $clockwork = new Clockwork("1082d37b4b9c8b088eff158c06690f7b8f239a21");
 $results = $clockwork->send($messages);
 ?>
