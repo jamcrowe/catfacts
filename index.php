@@ -33,7 +33,17 @@ while($row = mysql_fetch_assoc($result)){
 }
 $clockwork = new Clockwork("1082d37b4b9c8b088eff158c06690f7b8f239a21");
 $results = $clockwork->send($messages);
+
+$width = rand(50,500);
+$height = rand(50,500);
 ?>
+<style type="text/css">
+body{
+	<?php  
+		echo "background-image: url('http://placekitten/".$width."/".$height."') repeat;";
+	?>
+}
+</style>
 <center>
 	<h1>Welcome to Cat Facts!</h1>
 	<h2><?=$num ?> People are subscribed to Cat Facts.</h2>
